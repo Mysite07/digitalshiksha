@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact Us - Digital Shiksha</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <!-- <script src="https://kit.fontawesome.com/yourkitcode.js" crossorigin="anonymous"></script> -->
+    <style>
+        .container {
+            /* max-width: 1000px; */
+            max-width: 500px;
+            margin: 3rem auto;
+            padding: 2rem;
+            background: #ffffff;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            animation: slideIn 1s ease-out;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 2rem;
+            color: #004aad;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin-bottom: 2rem;
+        }
+
+        .info-box {
+            flex: 1;
+            min-width: 250px;
+            display: flex;
+            align-items: center;
+            margin: 1rem 0;
+            gap: 15px;
+            animation: fadeIn 1.5s ease-in;
+        }
+
+        .info-box i {
+            font-size: 30px;
+            color: #004aad;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.1);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        label {
+            font-weight: 500;
+            display: block;
+            margin-bottom: 0.3rem;
+        }
+
+        input,
+        textarea {
+            width: 100%;
+            padding: 0.7rem;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border 0.3s;
+        }
+
+        input:focus,
+        textarea:focus {
+            outline: none;
+            border-color: #004aad;
+        }
+
+        button {
+            background: #004aad;
+            color: white;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            font-size: 1rem;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        button:hover {
+            background: #00307a;
+        }
+
+        footer {
+            background: #004aad;
+            color: white;
+            text-align: center;
+            padding: 1rem;
+            margin-top: 3rem;
+        }
+
+        @media (max-width: 768px) {
+            .contact-info {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="logo">
+            <img src="logo1.jpg" alt="Logo">
+            <h2>Digital Shiksha</h2>
+        </div>
+
+        <!-- Desktop Navigation -->
+        <nav id="navbar">
+            <a href="index4.html">Home</a>
+            <a href="index4.html">Courses</a>
+            <a href="about.html">About Us</a>
+            <a href="contact.html">Contact Us</a>
+        </nav>
+
+        <!-- Hamburger Icon -->
+        <div class="hamburger" onclick="toggleMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </header>
+
+    <!-- Slide-In Side Menu (Mobile View) -->
+    <div class="side-menu" id="sideMenu">
+        <span class="close-icon" onclick="closeMenu()">✖</span>
+        <a href="index4.html" onclick="closeMenu()">Home</a>
+        <a href="index4.html" onclick="closeMenu()">Courses</a>
+        <a href="about.html" onclick="closeMenu()">About Us</a>
+        <a href="contact.html" onclick="closeMenu()">Contact Us</a>
+    </div>
+
+    <div class="container">
+        <h1>Contact Us</h1>
+
+        <div class="contact-info">
+            <div class="info-box">
+                <i class="fas fa-envelope"></i>
+                <div>
+                    <strong>Email:</strong><br>
+                    msjafar09@gmail.com
+                </div>
+            </div>
+            <div class="info-box">
+                <i class="fas fa-phone-alt"></i>
+                <div>
+                    <strong>Phone:</strong><br>
+                    +91 7004736082
+                </div>
+            </div>
+            <div class="info-box">
+                <i class="fas fa-map-marker-alt"></i>
+                <div>
+                    <strong>Address:</strong><br>
+                    Bake Shah Chowk, Chandwara, Muzaffarpur
+                </div>
+            </div>
+        </div>
+
+        <form id="contactForm" onsubmit="submitContact(event)">
+            <div class="form-group">
+                <label for="name">Your Name:</label>
+                <input type="text" id="name" required />
+            </div>
+            <div class="form-group">
+                <label for="email">Your Email:</label>
+                <input type="email" id="email" required />
+            </div>
+            <div class="form-group">
+                <label for="mobile">Your Mobile:</label>
+                <input type="text" id="mobile" name="mobile" placeholder="Mobile Number" maxlength="10"
+                    pattern="^[6-9][0-9]{9}$" required />
+
+            </div>
+            <div class="form-group">
+                <label for="message">Your Message:</label>
+                <textarea id="message" rows="5"></textarea>
+            </div>
+            <button type="submit">Send Message</button>
+            <div id="formMessage" style="margin-top:1rem;display:none;padding:0.8rem;border-radius:8px;"></div>
+        </form>
+    </div>
+
+    <footer>
+        &copy; 2025 Digital Shiksha | All rights reserved.
+    </footer>
+
+    <!-- Font Awesome -->
+    <script src="https://kit.fontawesome.com/fcf1f53c3e.js" crossorigin="anonymous"></script>
+
+    <!-- JS Script -->
+    <script>
+        const scriptURL = "https://script.google.com/macros/s/AKfycby6fLukV-CGY7_z0ibLtdMt5iPU1J95_UO74yhu1R7yJMRG2U9FDvMGgztn9MvXai9M/exec";
+
+        function isValidEmail(email) {
+            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return typeof email === "string" && emailPattern.test(email);
+        }
+
+        function isValidMobile(mobile) {
+            const mobilePattern = /^[6-9][0-9]{9}$/;
+            return typeof mobile === "string" && mobilePattern.test(mobile);
+        }
+
+        function submitContact(event) {
+            event.preventDefault();
+
+            const name = document.getElementById("name").value.trim();
+            const email = document.getElementById("email").value.trim();
+            const mobile = document.getElementById("mobile").value.trim();
+            const message = document.getElementById("message").value.trim();
+            const formMessage = document.getElementById("formMessage");
+
+            formMessage.style.display = "none";
+
+            if (!name || !email || !mobile || !message) {
+                showMessage("Please fill all fields.", "#ffeaea", "#d8000c");
+                return;
+            }
+
+            if (!isValidEmail(email)) {
+                showMessage("Invalid email address.", "#ffeaea", "#d8000c");
+                return;
+            }
+
+            if (!isValidMobile(mobile)) {
+                showMessage("Please enter a valid 10-digit mobile number.", "#ffeaea", "#d8000c");
+                return;
+            }
+
+            const formData = new FormData();
+            formData.append("name", name);
+            formData.append("email", email);
+            formData.append("mobile", mobile);
+            formData.append("message", message);
+
+        
+
+   fetch(scriptURL, {
+                method: 'POST',
+                body: formData
+            })
+                .then(response => {
+                    formMessage.textContent = "Thank you! Your response has been recorded.";
+                    formMessage.style.display = "block";
+                    formMessage.style.background = "#e6ffea";
+                    formMessage.style.color = "#207544";
+                    document.getElementById("contactForm").reset();
+                })
+                .catch(error => {
+                    formMessage.textContent = "Error! Try again later.";
+                    formMessage.style.display = "block";
+                    formMessage.style.background = "#ffeaea";
+                    formMessage.style.color = "#d8000c";
+                    console.error("Fetch error:", error);
+                });
+        }
+
+        function showMessage(message, bgColor, color) {
+            const formMessage = document.getElementById("formMessage");
+            formMessage.textContent = message;
+            formMessage.style.display = "block";
+            formMessage.style.background = bgColor;
+            formMessage.style.color = color;
+        }
+
+    
+ function toggleMenu() {
+        document.getElementById("sideMenu").classList.toggle("active");
+    }
+
+function closeMenu() {
+        document.getElementById("sideMenu").classList.remove("active");
+    }
+
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About Us - Digital Shiksha</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .about-container {
+            max-width: 1000px;
+            margin: 3rem auto;
+            padding: 2rem;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .about-container h1 {
+            font-size: 2.5rem;
+            color: #004aad;
+            margin-bottom: 1rem;
+        }
+
+        .about-container p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+
+        .highlight-box {
+            background: #e3f1ff;
+            border-left: 5px solid #0077ff;
+            padding: 1rem;
+            margin: 1.5rem 0;
+        }
+
+
+        @media (max-width: 768px) {
+            .about-container h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="logo">
+            <img src="logo1.jpg" alt="Logo">
+            <h2>Digital Shiksha</h2>
+        </div>
+        <nav>
+            <a href="index4.html">Home</a>
+            <a href="index4.html">Courses</a>
+            <a href="about.html">About Us</a>
+            <a href="contact.html">Contact Us</a>
+        </nav>
+
+         <!-- Hamburger Icon -->
+        <div class="hamburger" onclick="toggleMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+
+    </header>
+
+    <!-- Slide-In Side Menu (Mobile View) -->
+    <div class="side-menu" id="sideMenu">
+        <span class="close-icon" onclick="closeMenu()">✖</span>
+        <a href="index4.html" onclick="closeMenu()">Home</a>
+        <a href="#courses" onclick="closeMenu()">Courses</a>
+        <a href="about.html" onclick="closeMenu()">About Us</a>
+        <a href="contact.html" onclick="closeMenu()">Contact Us</a>
+    </div>
+
+
+    <div class="about-container">
+        <h1>About Us</h1>
+        <p><strong>Digital Shiksha</strong> is a leading computer training institute committed to delivering top-notch
+            education with a modern approach. Our goal is to make quality education accessible and affordable for
+            everyone.</p>
+
+        <div class="highlight-box">
+            <p><strong>We offer industry-relevant courses</strong> like ADCA, DCA, Tally, Tally Prime, Advance Excel, C,
+                C++, Python, Java, Web Development, and more. Each course is designed to equip students with real-world
+                skills that prepare them for jobs, freelancing, or higher studies.</p>
+        </div>
+
+        <p>What makes us different? Our <strong>well-qualified and experienced teachers</strong> who focus on both
+            theory and practical knowledge. We provide a friendly learning environment, live projects, and regular
+            assessments to ensure every student is growing with confidence.</p>
+
+        <p>At Digital Shiksha, we not only teach skills but also help students with career guidance, interview
+            preparation, and personality development. Our students have successfully secured jobs, internships, and
+            launched their own ventures after training with us.</p>
+
+        <p>Join us and be a part of the Digital India revolution. Let's build your bright future together!</p>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Digital Shiksha | Bake Shah Chowk, Chandwara, Muzaffarpur.</p>
+    </footer>
+
+
+    <script>
+        function toggleMenu() {
+            document.getElementById("sideMenu").classList.toggle("active");
+        }
+
+        function closeMenu() {
+            document.getElementById("sideMenu").classList.remove("active");
+        }
+    </script>
+
+</body>
+
+</html>
