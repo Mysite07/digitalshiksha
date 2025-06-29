@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Digital Shiksha - Course Playlist</title>
+    <style>
+        .container {
+            padding: 30px;
+        }
+
+        h2 {
+            width: 90%;
+            color: #003b6f;
+            cursor: pointer;
+            background: #e0e0e0;
+            padding: 10px;
+            border-radius: 5px;
+            margin: 10px 0;
+            transition: background 0.3s;
+        }
+
+        h2.active {
+            background: #c1d7f0;
+        }
+
+        .video-section {
+            display: none;
+            background: white;
+            margin: 10px 0 30px;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .iframe-container {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+
+        .video-item {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .video-label {
+            font-weight: bold;
+            margin-bottom: 8px;
+            color: #003b6f;
+        }
+
+        iframe {
+            border: none;
+            width: 100%;
+            max-width: 400px;
+            height: 225px;
+            border-radius: 8px;
+        }
+
+        @media (min-width: 768px) {
+            .iframe-container {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .iframe-container {
+                grid-template-columns: 1fr 1fr 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            <img src="logo1.jpg" alt="Digital Shiksha Logo" />
+            <h1>Digital Shiksha</h1>
+        </div>
+
+        <!-- Desktop Navigation -->
+        <nav id="navbar">
+            <a href="index.html">Home</a>
+            <a href="#courses">Admission</a>
+            <a href="courses.html">Courses</a>
+            <a href="about.html">About Us</a>
+            <a href="contact.html">Contact Us</a>
+        </nav>
+
+        <!-- Hamburger Icon -->
+        <div class="hamburger" onclick="toggleMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </header>
+
+    <!-- Slide-In Side Menu (Mobile View) -->
+    <div class="side-menu" id="sideMenu">
+        <span class="close-icon" onclick="closeMenu()">✖</span>
+        <a href="index.html" onclick="closeMenu()">Home</a>
+        <a href="#courses" onclick="closeMenu()">Admission</a>
+        <a href="courses.html" onclick="closeMenu()">Courses</a>
+        <a href="about.html" onclick="closeMenu()">About Us</a>
+        <a href="contact.html" onclick="closeMenu()">Contact Us</a>
+    </div>
+
+    <div class="container">
+        <h2 onclick="toggleSection('html', this)">HTML Lectures</h2>
+        <div class="video-section" id="html">
+            <div class="iframe-container">
+                <div class="video-item">
+                    <div class="video-label">Lecture 0</div>
+                    <iframe src="https://www.youtube.com/embed/4ACyO3hjj04" allowfullscreen></iframe>
+                </div>
+                <div class="video-item">
+                    <div class="video-label">Lecture 1</div>
+                    <iframe src="https://www.youtube.com/embed/NpEaa2P7qZI" allowfullscreen></iframe>
+                </div>
+                <div class="video-item">
+                    <div class="video-label">Lecture 2</div>
+                    <iframe src="https://www.youtube.com/embed/NpEaa2P7qZI" allowfullscreen></iframe>
+                </div>
+                <div class="video-item">
+                    <div class="video-label">Lecture 2</div>
+                    <iframe src="https://www.youtube.com/embed/NpEaa2P7qZI" allowfullscreen></iframe>
+                </div>
+                <div class="video-item">
+                    <div class="video-label">Lecture 2</div>
+                    <iframe src="https://www.youtube.com/embed/NpEaa2P7qZI" allowfullscreen></iframe>
+                </div>
+                <div class="video-item">
+                    <div class="video-label">Lecture 2</div>
+                    <iframe src="https://www.youtube.com/embed/NpEaa2P7qZI" allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
+
+        <h2 onclick="toggleSection('css', this)">CSS Lectures</h2>
+        <div class="video-section" id="css">
+            <div class="iframe-container">
+                <div class="video-item">
+                    <div class="video-label">Lecture 0</div>
+                    <iframe src="https://www.youtube.com/embed/videoseries?list=YOUR_CSS_PLAYLIST_ID"
+                        allowfullscreen></iframe>
+                </div>
+                <div class="video-item">
+                    <div class="video-label">Lecture 1</div>
+                    <iframe src="https://www.youtube.com/embed/YOUR_SECOND_CSS_VIDEO_ID" allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
+
+        <h2 onclick="toggleSection('python', this)">Python Lectures</h2>
+        <div class="video-section" id="python">
+            <div class="iframe-container">
+                <div class="video-item">
+                    <div class="video-label">Lecture 0</div>
+                    <iframe src="https://www.youtube.com/embed/videoseries?list=YOUR_PYTHON_PLAYLIST_ID"
+                        allowfullscreen></iframe>
+                </div>
+                <div class="video-item">
+                    <div class="video-label">Lecture 1</div>
+                    <iframe src="https://www.youtube.com/embed/YOUR_SECOND_PYTHON_VIDEO_ID" allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function toggleSection(id, clickedHeader) {
+            const section = document.getElementById(id);
+            const allHeaders = document.querySelectorAll(".container h2");
+
+            // Toggle section
+            const isVisible = section.style.display === 'block';
+            document.querySelectorAll('.video-section').forEach(sec => sec.style.display = 'none');
+            allHeaders.forEach(h => h.classList.remove('active'));
+
+            if (!isVisible) {
+                section.style.display = 'block';
+                clickedHeader.classList.add('active');
+            }
+        }
+    </script>
+</body>
+
+</html>
